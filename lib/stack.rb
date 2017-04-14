@@ -1,4 +1,6 @@
 class Stack
+  class EmptyStackError < StandardError; end
+
   def initialize
     @size = 0
   end
@@ -12,6 +14,10 @@ class Stack
     @size += 1
   end
 
+  def pop
+    raise EmptyStackError
+  end
+
   def top
     @value
   end
@@ -19,5 +25,4 @@ class Stack
   def size
     @size
   end
-
 end

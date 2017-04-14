@@ -49,4 +49,14 @@ describe Stack do
       end
     end
   end
+
+  describe '#pop' do
+    context 'when size is 0' do
+      it 'to raise err' do
+        stack = Stack.new
+        expect{stack.pop}.to raise_error(Stack::EmptyStackError)
+      end
+    end
+
+  end
 end
