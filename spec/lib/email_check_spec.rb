@@ -20,10 +20,10 @@ describe EmailCheck do
       emails_base = %w(
 jfkdsljfls@example.com
 fhudsihf@example.com
-ijfiofheruh@example.com
-jfkdsdjksfjklsd@example.com
+ijfiofh3123eruh@example.com
+jfkds.djksfjklsd@example.com
 fjkfldjslfdj8s9fus@example.com
-9420383290u@example.com
+94203.83290u@example.com
       )
       answer_base = emails_base.map{'ok'}
       include_context '正しく動く', emails_base,  answer_base

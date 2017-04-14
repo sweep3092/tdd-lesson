@@ -12,10 +12,16 @@ class EmailCheck
 
     def valid_email?(email)
       # TODO: emailがただしいのか
-      #binding.pry
       chomped = email.chomp
-      return false if chomped.include?("..")
-      return false if email.empty?
+      chomped = chomped[0..(chomped.index("@example.com", -12) - 1)]
+
+      return false if chomped.empty?
+      
+      splitted = chompled.split(".")
+      return false if splitted.include?("")
+      return false if splitted.match()
+
+      # TODO: quoted-string
       true
     end
   end
