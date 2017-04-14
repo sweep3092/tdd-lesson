@@ -13,13 +13,15 @@ class EmailCheck
     def valid_email?(email)
       # TODO: emailがただしいのか
       chomped = email.chomp
-      chomped = chomped[0..(chomped.index("@example.com", -12) - 1)]
+      at_place = chomped.index("@example.com", -12)
+      return false if at_place == 0
+      chomped = chomped[0..at_place-1]
 
-      return false if chomped.empty?
-      
-      splitted = chompled.split(".")
+      return false if chomped.end_with?('.')
+
+      splitted = chomped.split(".")
       return false if splitted.include?("")
-      return false if splitted.match()
+      return false if splitted =~ /[a-z][A-Z][0-9]+/
 
       # TODO: quoted-string
       true
