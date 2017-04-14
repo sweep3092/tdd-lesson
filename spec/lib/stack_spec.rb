@@ -32,6 +32,13 @@ describe Stack do
         expect(stack.top).to eq 1
       end
     end
+
+    context 'when values are empty' do
+      it 'to raise err' do
+        stack = Stack.new
+        expect{stack.top}.to raise_error Stack::EmptyStackError
+      end
+    end
   end
 
   describe '#size' do
@@ -50,6 +57,17 @@ describe Stack do
         expect(stack.size).to eq 1
         stack.push(@values.sample)
         expect(stack.size).to eq 2
+      end
+    end
+
+    context 'when values pushed and poped' do
+      it 'to be 0' do
+        stack = Stack.new
+        stack.push(@values.sample)
+        stack.push(@values.sample)
+        expect(stack.size).to eq 2
+        stack.pop
+        expect(stack.size).to eq 1
       end
     end
   end

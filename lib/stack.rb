@@ -2,28 +2,28 @@ class Stack
   class EmptyStackError < StandardError; end
 
   def initialize
-    @size = 0
+    @values = []
   end
 
   def empty?
-    @size == 0
+    @values.length == 0
   end
 
   def push(v)
-    @value = v
-    @size += 1
+    @values << v
   end
 
   def pop
     raise EmptyStackError if empty?
-    @size -= 1
+    @values.pop
   end
 
   def top
-    @value
+    raise EmptyStackError if empty?
+    @values.last
   end
 
   def size
-    @size
+    @values.length
   end
 end
