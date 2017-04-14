@@ -2,6 +2,10 @@ require 'spec_helper'
 require 'stack'
 
 describe Stack do
+  before do
+    @values = [*1..100]
+  end
+
   describe '#empty?' do
     context 'when create a stack' do
       it "to be true" do
@@ -14,7 +18,7 @@ describe Stack do
       it "to be false" do
         stack = Stack.new
         expect(stack.empty?).to be_truthy
-        stack.push([*1..3].sample)
+        stack.push(@values.sample)
         expect(stack.empty?).to be_falsey
       end
     end
@@ -34,7 +38,7 @@ describe Stack do
     context 'when a value pushed' do
       it "to be 1" do
         stack = Stack.new
-        stack.push([*1..3].sample)
+        stack.push(@values.sample)
         expect(stack.size).to eq 1
       end
     end
@@ -42,9 +46,9 @@ describe Stack do
     context 'when values pushed' do
       it "to be 2" do
         stack = Stack.new
-        stack.push([*1..100].sample)
+        stack.push(@values.sample)
         expect(stack.size).to eq 1
-        stack.push([*1..100].sample)
+        stack.push(@values.sample)
         expect(stack.size).to eq 2
       end
     end
@@ -55,6 +59,15 @@ describe Stack do
       it 'to raise err' do
         stack = Stack.new
         expect{stack.pop}.to raise_error(Stack::EmptyStackError)
+      end
+    end
+
+    context 'when a value poped' do
+      it 'to be 0' do
+        stack = Stack.new
+        stack.push(@values.sample)
+        stack.pop
+        expect(stack.size).to eq 0
       end
     end
 

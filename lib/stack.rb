@@ -15,7 +15,8 @@ class Stack
   end
 
   def pop
-    raise EmptyStackError
+    raise EmptyStackError if empty?
+    @size -= 1
   end
 
   def top
