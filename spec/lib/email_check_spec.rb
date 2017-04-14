@@ -11,7 +11,7 @@ describe EmailCheck do
 
     it do
       EmailCheck.check(input, output)
-      expect(output.read).to eq answer
+      expect(output.string).to eq(answer.join("\n") + "\n")
     end
   end
 
@@ -28,7 +28,7 @@ fjkfldjslfdj8s9fus@example.com
       answer_base = emails_base.map{'ok'}
       include_context '正しく動く', emails_base,  answer_base
     end
-    
+
     context 'with .. or . emails' do
       emails = %w(
 ddds.@example.com
@@ -47,4 +47,3 @@ fdskh..fds@example.com
     end
   end
 end
-
