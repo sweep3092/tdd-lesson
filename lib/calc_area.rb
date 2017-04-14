@@ -4,6 +4,6 @@ class CalcArea
   end
 
   def calc
+    (@radius*@radius*Math::PI).round
   end
 end
-
